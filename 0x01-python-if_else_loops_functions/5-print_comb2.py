@@ -14,6 +14,6 @@ for i in range(0, 99 + 1):
         if (getfirstdigit(i) < getlastdigit(i)):
             print("{}".format(str(i).zfill(2)))
             continue
-    if (getfirstdigit(i) < getlastdigit(i) or i < 10):
+    if (getfirstdigit(i) < getlastdigit(i) or i <= 10):
         print("{}, ".format(str(i).zfill(2)), end="")
     continue
