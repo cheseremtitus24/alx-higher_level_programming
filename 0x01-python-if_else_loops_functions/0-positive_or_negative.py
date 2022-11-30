@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3.10
 import random
 number = random.randint(-10, 10)
 match number:
