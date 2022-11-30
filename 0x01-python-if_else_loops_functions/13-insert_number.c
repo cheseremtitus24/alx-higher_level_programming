@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stdio.h>
 /**
  * insert_node- inserts an element at right position in a sorted linked list
  * @head: Pointer to the head of the linked list
@@ -14,7 +13,6 @@ listint_t *insert_node(listint_t **head, int number)
 	listint_t *current;
 	listint_t *tmp;
 	int insert_end;
-	int head_val = (*head)->n;
 
 	current = *head;
 	insert_end = 0;
@@ -24,13 +22,14 @@ listint_t *insert_node(listint_t **head, int number)
 	new->n = number;
 	new->next = NULL;
 	if (*head == NULL)
+	{
+		new->next = *head;
 		*head = new;
-	/* Insert at beginning of List*/
-	else if (number < head_val)
+	}
+	else if (number < (*head)->n)
 	{
 		new->next = (*head);
 		*head = new;
-		return (new);
 	}
 	else
 		{
