@@ -10,13 +10,10 @@ def getlastdigit(n):
 
 
 for i in range(0, 99 + 1):
-    if i > 0 and i < 10:
-        print("{}, ".format(str(i).zfill(2)), end="")
-        continue
     if (i == 89):
         if (getfirstdigit(i) < getlastdigit(i)):
             print("{}".format(str(i).zfill(2)))
             continue
-    if (getfirstdigit(i) < getlastdigit(i)):
+    if (getfirstdigit(i) < getlastdigit(i) or i < 10):
         print("{}, ".format(str(i).zfill(2)), end="")
     continue
