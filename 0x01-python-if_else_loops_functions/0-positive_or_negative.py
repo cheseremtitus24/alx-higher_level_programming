@@ -1,12 +1,11 @@
-#!/usr/bin/python3.10
+#!/usr/bin/python3
 import random
 number = random.randint(-10, 10)
-match number:
-    case 0:
-        print(f"{number:d} is zero")
-    case number if number > 0:
-        print(f"{number:d} is positive")
-    case number if number < 0:
-        print(f"{number:d} is negative")
-    case _:
-        print("Invalid Number")
+if number ==  0:
+    print(f"{number:d} is zero")
+elif number > 0:
+    print(f"{number:d} is positive")
+elif number < 0:
+    print(f"{number:d} is negative")
+else:
+    print("Invalid Number")
