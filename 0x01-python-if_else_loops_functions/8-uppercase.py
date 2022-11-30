@@ -11,4 +11,4 @@ def uppercase(str):
         except BaseException:
             res_string.append(letter)
 
-    print("".join(res_string))
+    print("{}".format("".join(res_string)))
