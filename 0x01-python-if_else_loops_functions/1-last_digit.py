@@ -16,15 +16,14 @@ def print_val(number, last_digit):
 
 
 last_digit = None
-match number:
-    case 0:
-        print(f"Last digit of {number} is {number%10:d} and is {number}")
-    case number if number > 0:
-        last_digit = number % 10
-        print_val(number, last_digit)
-    case number if number < 0:
-        last_digit = -number % 10
-        last_digit *= -1
-        print_val(number, last_digit)
-    case _:
-        print("Invalid Number")
+if number == 0:
+    print(f"Last digit of {number} is {number%10:d} and is {number}")
+elif number > 0:
+    last_digit = number % 10
+    print_val(number, last_digit)
+elif number < 0:
+    last_digit = -number % 10
+    last_digit *= -1
+    print_val(number, last_digit)
+else:
+    print("Invalid Number")
