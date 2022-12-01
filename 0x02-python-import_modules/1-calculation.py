@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-import calculator_1 as calc
+from calculator_1 import add, mul, div, sub
 
 if __name__ == '__main__':
     a = 10
     b = 5
 
-    add = calc.add(a, b)
-    minus = calc.sub(a, b)
-    mult = calc.mul(a, b)
-    div = calc.div(a, b)
+    add = add(a, b)
+    minus = sub(a, b)
+    mult = mul(a, b)
+    div = div(a, b)
 
     result = [add, minus, mult, div]
     operators = "+-*/"
