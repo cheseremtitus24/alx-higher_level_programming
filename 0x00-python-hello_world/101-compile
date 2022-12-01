@@ -1,15 +1,5 @@
-#!/usr/bin/python3
-import os
-
-import py_compile
-# Set environment variables
-# os.environ['PYFILE'] = 'script.py'
-# os.environ['PYFILEc'] = 'script.pyc'
-
-scriptname = "$PYFILE"
-outname = "$PYFILEc"
-print("Compiling {} ...".format(os.path.expandvars(scriptname)))
-# explicitly compile this module
-py_compile.compile(
-    f"{os.path.expandvars(scriptname)}",
-    f"{os.path.expandvars(outname)}")
+#!/bin/bash
+echo "Compiling $PYFILE ..."
+python3 -m py_compile "$PYFILE"
+mv __pycache__/*.pyc "$PYFILEc"
+rm -r __pycache__
