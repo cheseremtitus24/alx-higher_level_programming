@@ -7,10 +7,9 @@ def delete_at(my_list, idx):
     else:
         temp_list = list()
         temp_list = my_list[:idx]
-        temp_list += my_list[idx+1:]
+        temp_list += my_list[idx + 1:]
         my_list = list()
 
         my_list = temp_list[:]
 
-
-        return temp_list 
+        return temp_list
