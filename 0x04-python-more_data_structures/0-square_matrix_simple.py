@@ -3,11 +3,8 @@
 def square_matrix_simple(matrix=[]):
     if not matrix:
         return matrix
-    mcopy = list()
-    for item in matrix:
-        mcopy.append(item.copy())
-    for i in range(len(mcopy)):
-        for j in range(len(mcopy)):
-            mcopy[i][j] *= mcopy[i][j]
 
-    return mcopy
+    def square(x): return x**2
+    squared = [list(map(square, sublist)) for sublist in matrix]
+
+    return squared
