@@ -12,5 +12,8 @@ def safe_print_list_integers(my_list=[], x=0):
     else:
         pass
     finally:
-        print()
+        if i:
+            print()
+        else:
+            i = i - 1
         return (i)
