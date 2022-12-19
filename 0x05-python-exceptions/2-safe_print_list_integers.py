@@ -13,6 +13,9 @@ def safe_print_list_integers(my_list=[], x=0):
 
     finally:
 
-        if counter:
+        if my_list:
+            count = counter - 1
             print()
+        else:
+            counter = 0
         return (counter)
