@@ -4,6 +4,7 @@ class Square:
     """This is a Class with an instance private attribute called size"""
 
     def __init__(self, size=0, position=(0, 0)):
+        """ Initialization method for private attribute size and position"""
         self.__size = size
         self.__position = position
 
