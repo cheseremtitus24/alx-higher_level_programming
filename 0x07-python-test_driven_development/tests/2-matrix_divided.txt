@@ -1,0 +1,64 @@
+===============================
+ How to Use doctest_in_help.py
+===============================
+
+This library is very simple, since it only has one function called
+``matrix_divided(matrix, div)``.
+
+Numbers
+=======
+
+``matrix_divided()`` returns the divided elements of matrix.  For numbers,
+that value is equivalent to using the ``/`` operator.
+
+::
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix_divided([[1,2],[3,4]], 0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
+
+It also works with floating-point values.
+
+::
+
+    >>> matrix_divided([[1.3,2.8],[3,4]], 0.5)
+    [[2.6, 5.6], [6.0, 8.0]]
+
+    >>> matrix_divided([[1,2,3],[1,2]], 3)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+    >>> matrix_divided([[1,2,3],[1,'2',5]], 3)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided(None, None)
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+
+Non-Numbers - strictly apply that matrix must be a list of lists
+===========
+
+
+    >>> matrix_divided([[1,2],[3,4]], '0.5')
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+    >>> matrix_divided((1, 2, 2), 2)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided([(1, 2, 3)], 2)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided([(1, 2, 3),(4,5,6)], 2)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided(((1, 2, 3),(4,5,6)), 2)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
