@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""This module performs arithmetic operations
-the matrix_divided performs arithmetic division and peforms
-rounding to 2dp
+"""This module only outputs a persons name
+and raises a TypeError when either the 
+first or last name is not an instance of a string
 """
 
 
