@@ -14,6 +14,6 @@ try:
 except Exception as e:
     print(e)
 try:
-    print(add_integer(None,None))
+    print(add_integer(None, None))
 except Exception as e:
     print(e)

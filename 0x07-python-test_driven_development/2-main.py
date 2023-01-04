@@ -7,4 +7,4 @@ matrix = [
 ]
 print(matrix_divided(matrix, 3))
 print(matrix)
-print(matrix_divided([[1.3,2.8],[3,4]], 0.5))
+print(matrix_divided([[1.3, 2.8], [3, 4]], 0.5))
