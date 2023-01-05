@@ -8,7 +8,12 @@ the @property decorator function.
 
 
 class Rectangle:
-    """ This is an empty class """
+    """ This is an that enables 
+    for the setting of a quadrilaterals 
+    height and width
+    it further performs the computation of
+    both area and perimeter
+    """
 
     def __init__(self, width=0, height=0):
         self.height = height
@@ -16,8 +21,11 @@ class Rectangle:
 
     @property
     def width(self):
-        """Width getter method returns a private object that is immutable
-        Width setter: """
+        """Width getter method returns a private object
+        that is immutable
+        Width setter:
+            enables for the setting of width
+            """
         return self.__width
 
     @width.setter
@@ -34,8 +42,12 @@ class Rectangle:
 
     @property
     def height(self):
-        """Width getter method returns a private object that is immutable
-        Width setter: """
+        """height getter method returns a private object 
+        that is immutable
+        height setter: 
+        height setter:
+            enables for the setting of height 
+            """
         return self.__height
 
     @height.setter
@@ -51,7 +63,11 @@ class Rectangle:
         pass
 
     def area(self):
+        """ Performs computation of the area of 
+        a quadrilateral and returns the area"""
         return self.width * self.height
 
     def perimeter(self):
+        """ Performs computation of the perimeter of 
+        a quadrilateral and returns a perimeter"""
         return (2 * self.width) + (2 * self.height)
