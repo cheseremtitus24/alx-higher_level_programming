@@ -1,13 +1,20 @@
 """
 This module defines a rectangle parent class
-that has instance methods for data encapsulation using
-the @property decorator function.
+that has instance methods for 
+data encapsulation using
+the 
+@property decorator function.
 
 """
 
 
 class Rectangle:
-    """ This is an empty class """
+    """ This is a rectangle class 
+        that has encapsulation functions that 
+        get and set the width and height 
+        of a rectangle object
+
+    """
 
     def __init__(self, width=0, height=0):
         self.height = height
@@ -15,7 +22,10 @@ class Rectangle:
 
     @property
     def width(self):
-        """Width getter method returns a private object that is immutable
+        """Width getter 
+        method returns a 
+        private object that 
+        is immutable
         Width setter: """
         return self.__width
 
@@ -33,7 +43,10 @@ class Rectangle:
 
     @property
     def height(self):
-        """Width getter method returns a private object that is immutable
+        """Width getter 
+        method returns a 
+        private object that is 
+        immutable
         Width setter: """
         return self.__height
 
