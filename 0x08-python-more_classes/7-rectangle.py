@@ -18,7 +18,9 @@ class Rectangle:
 
     @property
     def width(self):
-        """Width getter method returns a private object that is immutable
+        """Width getter method 
+        returns a private 
+        object that is immutable
         Width setter: """
         return self.__width
 
@@ -36,8 +38,11 @@ class Rectangle:
 
     @property
     def height(self):
-        """Width getter method returns a private object that is immutable
-        Width setter: """
+        """Height getter method 
+        returns a private 
+        object that is 
+        immutable
+        Height setter: """
         return self.__height
 
     @height.setter
