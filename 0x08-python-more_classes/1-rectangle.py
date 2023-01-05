@@ -23,22 +23,22 @@ class Rectangle:
 
     @property
     def width(self):
-       """ 
-        Returns the summation of integers and floats
+        """
+         Returns the summation of integers and floats
 
-        Args:
-         param1 (list(list(int:float),list(int:float),...):
-         The first parameter.
-         param2 (int:float): The second parameter.
+         Args:
+          param1 (list(list(int:float),list(int:float),...):
+          The first parameter.
+          param2 (int:float): The second parameter.
 
-        Returns:
-         bool: The return value. True for success, False otherwise.
+         Returns:
+          bool: The return value. True for success, False otherwise.
 
-        Raises:
-         TypeError: if list items are neither an int || float
-         : if matrix element list are of different lengths
-         ZeroDivisionError: if divisor equals to 0
-         """
+         Raises:
+          TypeError: if list items are neither an int || float
+          : if matrix element list are of different lengths
+          ZeroDivisionError: if divisor equals to 0
+          """
         return self.__width
 
     @width.setter
@@ -55,22 +55,22 @@ class Rectangle:
 
     @property
     def height(self):
-       """ 
-        Returns the summation of integers and floats
+        """
+         Returns the summation of integers and floats
 
-        Args:
-         param1 (list(list(int:float),list(int:float),...):
-         The first parameter.
-         param2 (int:float): The second parameter.
+         Args:
+          param1 (list(list(int:float),list(int:float),...):
+          The first parameter.
+          param2 (int:float): The second parameter.
 
-        Returns:
-         bool: The return value. True for success, False otherwise.
+         Returns:
+          bool: The return value. True for success, False otherwise.
 
-        Raises:
-         TypeError: if list items are neither an int || float
-         : if matrix element list are of different lengths
-         ZeroDivisionError: if divisor equals to 0
-         """
+         Raises:
+          TypeError: if list items are neither an int || float
+          : if matrix element list are of different lengths
+          ZeroDivisionError: if divisor equals to 0
+          """
         return self.__height
 
     @height.setter
