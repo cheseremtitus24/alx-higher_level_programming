@@ -36,7 +36,6 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         self.__width = width
 
-
     @property
     def height(self):
         """height getter method returns a private object
@@ -54,7 +53,6 @@ class Rectangle:
         if height < 0:
             raise ValueError("height must be >= 0")
         self.__height = height
-
 
     def area(self):
         """ Performs computation of the area of
