@@ -11,5 +11,7 @@ class Rectangle:
     """ This is an empty class
     that neither has class attributes
     nor class instance methods/attributes
+    that neither has class attributes
+    nor class instance methods/attributes
     """
     pass
