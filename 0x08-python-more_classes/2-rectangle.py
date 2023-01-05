@@ -8,8 +8,8 @@ the @property decorator function.
 
 
 class Rectangle:
-    """ This is an that enables 
-    for the setting of a quadrilaterals 
+    """ This is an that enables
+    for the setting of a quadrilaterals
     height and width
     it further performs the computation of
     both area and perimeter
@@ -36,17 +36,14 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         self.__width = width
 
-    @width.deleter
-    def width(self):
-        pass
 
     @property
     def height(self):
-        """height getter method returns a private object 
+        """height getter method returns a private object
         that is immutable
-        height setter: 
         height setter:
-            enables for the setting of height 
+        height setter:
+            enables for the setting of height
             """
         return self.__height
 
@@ -58,16 +55,13 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__height = height
 
-    @height.deleter
-    def height(self):
-        pass
 
     def area(self):
-        """ Performs computation of the area of 
+        """ Performs computation of the area of
         a quadrilateral and returns the area"""
         return self.width * self.height
 
     def perimeter(self):
-        """ Performs computation of the perimeter of 
+        """ Performs computation of the perimeter of
         a quadrilateral and returns a perimeter"""
         return (2 * self.width) + (2 * self.height)
