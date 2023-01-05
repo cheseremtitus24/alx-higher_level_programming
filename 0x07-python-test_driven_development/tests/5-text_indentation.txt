@@ -1,1 +1,33 @@
-#Empty Test
+===============================
+ How to Use doctest_in_help.py
+===============================
+
+This library is very simple, since it only has one function called
+``text_indentation(text)``.
+
+Non String classes
+=======
+
+``text_indentation()`` parses a string and performs appending two new lines on period, question mark and full colon.
+
+Raises TypeError exception when the parameter is not an 
+instance of the str class.
+::
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+    >>> text_indentation((1,2))
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+String classes
+=======
+    >>> text_indentation("hello.")
+    hello.
+    <BLANKLINE>
+
+
+
+    >>> text_indentation("hello")
+    hello
+
