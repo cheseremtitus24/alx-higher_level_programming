@@ -7,18 +7,47 @@ In this case we'll make use of merge sort
 """
 
 
-def merge_sort(list_to_sort):
-    """ merge_sort is a perfect function
-    that sorts a list are returns
-    a sorted list
+def mergeSort(array):
+    """ merge_sort is a modifier function
+    that sorts the original list as it is
+    passed by reference
+    sourced from https://www.programiz.com/dsa/merge-sort
     """
-    # Check for Verify input type to only be a list
-    if type(list_to_sort) in [list]:
-        l_local = list_to_sort.copy()
-        # return sorted_list
-        pass
-    else:
-        raise TypeError("{} must be a list".format(list_to_sort))
+    if len(array) > 1:
+
+        #  r is the point where the array is divided into two subarrays
+        r = len(array) // 2
+        L = array[:r]
+        M = array[r:]
+
+        # Sort the two halves
+        mergeSort(L)
+        mergeSort(M)
+
+        i = j = k = 0
+
+        # Until we reach either end of either L or M, pick larger among
+        # elements L and M and place them in the correct position at A[p..r]
+        while i < len(L) and j < len(M):
+            if L[i] < M[j]:
+                array[k] = L[i]
+                i += 1
+            else:
+                array[k] = M[j]
+                j += 1
+            k += 1
+
+        # When we run out of elements in either L or M,
+        # pick up the remaining elements and put in A[p..r]
+        while i < len(L):
+            array[k] = L[i]
+            i += 1
+            k += 1
+
+        while j < len(M):
+            array[k] = M[j]
+            j += 1
+            k += 1
 
 
 class MyList(list):
@@ -35,5 +64,11 @@ class MyList(list):
         a sorted list and does not modify the
         original input list and only makes a copy
         """
-        l_copy = merge_sort(self)
-        print(l_copy)
+        #verify that the input values are all ints
+        if (all(isinstance(x,int) for x in self)):
+            l_copy = self.copy()
+            mergeSort(l_copy)
+            print(l_copy)
+        else:
+            raise TypeError("All List items must be integers")
+
