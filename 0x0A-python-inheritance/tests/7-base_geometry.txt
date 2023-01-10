@@ -3,31 +3,27 @@
 ===============================
 
 This library is very simple, since it only has one function called
-``say_my_name(first_name, last_name="")``.
 
-Non String classes
+
+Verify Data Type
 =======
-
-``say_my_name()`` outputs a persons first and last name else raises
-a TypeError exception when either of the parameters is not an 
-instance of the str class
-
-::
-
-    >>> say_my_name = __import__('3-say_my_name').say_my_name
-
-    >>> say_my_name([[1,2],[3,4]], 0)
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> my_geometry = BaseGeometry() 
+    >>> my_geometry.integer_validator("my_int",12)
+    >>> my_geometry.integer_validator("width",89)
+    >>> my_geometry.integer_validator("name", "John")
     Traceback (most recent call last):
-    TypeError: first_name must be a string
+    TypeError: name must be an integer
 
-    >>> say_my_name("hello", 0)
+    >>> my_geometry.integer_validator(22,12)
     Traceback (most recent call last):
-    TypeError: last_name must be a string
+    TypeError: 22 must be a string
 
-String classes
+Verify Values 
 =======
-    >>> say_my_name("hello")
-    My name is hello 
+    >>> my_geometry.integer_validator("age", 0) 
+    Traceback (most recent call last):
+    ValueError: age must be greater than 0
 
-    >>> say_my_name("hello", "world")
-    My name is hello world
+
+
