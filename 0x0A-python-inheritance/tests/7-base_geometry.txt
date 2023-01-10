@@ -1,0 +1,33 @@
+===============================
+ How to Use doctest_in_help.py
+===============================
+
+This library is very simple, since it only has one function called
+``say_my_name(first_name, last_name="")``.
+
+Non String classes
+=======
+
+``say_my_name()`` outputs a persons first and last name else raises
+a TypeError exception when either of the parameters is not an 
+instance of the str class
+
+::
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+    >>> say_my_name([[1,2],[3,4]], 0)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name("hello", 0)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+String classes
+=======
+    >>> say_my_name("hello")
+    My name is hello 
+
+    >>> say_my_name("hello", "world")
+    My name is hello world
