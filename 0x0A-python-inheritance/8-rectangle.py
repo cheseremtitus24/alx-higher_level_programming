@@ -41,5 +41,9 @@ class Rectangle(BaseGeometry):
     class"""
 
     def __init__(self, width, height):
+        """__init__ initializes the width and height
+        of the rectangle and also validates to check that
+        the width and height are greater than 0
+        """
         self.__width = self.integer_validator("width", width)
         self.__height = self.integer_validator("height", height)
