@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 import json
 
+"""
+This module contains a method
+that loads json serialized objects
+from a file into memory variables
+"""
+
 
 def load_from_json_file(filename):
     """
