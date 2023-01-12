@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 import json
 
+"""
+This module performs serialization of
+python objects as json representation
+"""
+
 
 def to_json_string(my_obj):
     """
