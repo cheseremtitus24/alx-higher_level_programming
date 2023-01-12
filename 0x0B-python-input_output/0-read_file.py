@@ -6,4 +6,4 @@ def read_file(filename=""):
     them to stdout
     """
     with open(filename) as f:
-        print(f.read())
+        print(f.read(), end="")
