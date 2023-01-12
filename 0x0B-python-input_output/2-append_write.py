@@ -13,8 +13,8 @@ def append_write(filename="", text=""):
     and returns the number of characters written to the file
     """
     try:
-        with open(filename, mode="a", "utf-8") as f:
+        with open(filename, mode="a", encoding="utf-8") as f:
             return f.write(text)
     except BaseException:
-        with open(filename, mode="w", "utf-8"):
+        with open(filename, mode="w", encoding="utf-8"):
             return f.write(text)
