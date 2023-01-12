@@ -1,7 +1,13 @@
 #!/usr/bin/python3
+"""
+This module performs writing to files
+making of the with context manager
+"""
+
+
 def write_file(filename="", text=""):
     """
-    This function writes jall the
+    This function writes all the
     contents of an input text to a file
     and returns the number of characters written to the file
     """
