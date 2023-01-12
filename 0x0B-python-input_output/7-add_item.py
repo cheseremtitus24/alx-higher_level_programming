@@ -1,7 +1,15 @@
 #!/usr/bin/python3
 
 import sys
+""" This module
+reads data from commandline arguments and saves
+them to a list and then saved to the same file
+as a json string
+"""
 if __name__ == "__main__":
+    """ Function reads commandline args
+    and saves them as json string to a file
+    """
 
     save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
     load_from_json_file = __import__(
