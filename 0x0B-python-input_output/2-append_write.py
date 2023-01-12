@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+This module contains a file write
+method that utilizes the use of a
+context manager
+"""
+
+
 def append_write(filename="", text=""):
     """
     This function append writes all the
