@@ -79,12 +79,28 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        dummy_rect = cls(0, 0, 0, 0, 0)
+        if cls.__name__ == "Rectangle":
+            dummy_rect = cls(0, 0, 0, 0, 0)
+        else:
+            dummy_rect = cls(0,0,0,0)
         dummy_rect.update(**dictionary)
         return dummy_rect
 
     @classmethod
     def load_from_file(cls):
         fname = cls.__name__
+        try:
+            fp = open(f"{fname}.json",mode="r",encoding="utf-8")
+            contents = fp.read()
+            fp.close()
+        except:
+            return "[]"
+        else:
+            item_class_list = cls.from_json_string(contents)
+            retval = list()
+            for item in item_class_list:
+                retval.append(cls.create(**item))
 
-        pass
+            return retval
+
+
