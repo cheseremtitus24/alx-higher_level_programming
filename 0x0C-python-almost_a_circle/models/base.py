@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import json
 """
 This module contains the base class
