@@ -48,6 +48,12 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, size):
+        """
+        Sets the value of size and
+        validates to ensure that it is
+        and integer value that is
+        greater than or equal to zero
+        """
         if type(size) in [int]:
             if size > 0:
                 self.__size = size
@@ -69,6 +75,12 @@ class Square(Rectangle):
 
     @x.setter
     def x(self, x):
+        """
+        Sets the value of x and
+        validates to ensure that it is
+        and integer value that is
+        greater than or equal to zero
+        """
         if (type(x) in [int]):
             if (x >= 0):
                 self.__x = x
@@ -90,6 +102,12 @@ class Square(Rectangle):
 
     @y.setter
     def y(self, y):
+        """
+        Sets the value of y and
+        validates to ensure that it is
+        and integer value that is
+        greater than or equal to zero
+        """
         if (type(y) in [int]):
             if (y >= 0):
                 self.__y = y

@@ -103,6 +103,12 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, width):
+        """
+        Sets the value of width and
+        validates to ensure that it is
+        and integer value that is
+        greater than or equal to zero
+        """
         if (self.__validate_type_is_int(width)):
             if (self.__validate_value(width)):
                 self.__width = width
@@ -122,6 +128,12 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, height):
+        """
+        Sets the value of height and
+        validates to ensure that it is
+        and integer value that is
+        greater than or equal to zero
+        """
         if (self.__validate_type_is_int(height)):
             if (self.__validate_value(height)):
                 self.__height = height
@@ -141,6 +153,12 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, x):
+        """
+        Sets the value of x and
+        validates to ensure that it is
+        and integer value that is
+        greater than or equal to zero
+        """
         if (self.__validate_type_is_int(x)):
             if (self.__validate_value(x)):
                 self.__x = x
@@ -162,6 +180,12 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, y):
+        """
+        Sets the value of y and
+        validates to ensure that it is
+        and integer value that is
+        greater than or equal to zero
+        """
         if (self.__validate_type_is_int(y)):
             if (self.__validate_value(y)):
                 self.__y = y
