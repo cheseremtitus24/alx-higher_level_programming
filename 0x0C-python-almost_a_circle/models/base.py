@@ -24,16 +24,11 @@ class Base:
         accept integers.
         It also takes in a default value of None
         """
-
-        if (type(id) in [int]):
-            if (id > 0):
-                self.id = id
-            else:
-                self.__class__.__nb_objects += 1
-                self.id = self.__class__.__nb_objects
+        if (type(id) in [int] and id > 0):
+            self.id = id
         else:
-            raise TypeError("id must be an integer")
-
+            self.__class__.__nb_objects += 1
+            self.id = self.__class__.__nb_objects
 
     def to_json_string(list_dictionaries):
         """
