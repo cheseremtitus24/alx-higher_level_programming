@@ -66,10 +66,12 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """deserializes a list of string class to return a list of class objects
+        """deserializes a list of string
+        class to return a list of class objects
 
                     Args:
-                         json_string (str): a string containing class dictionary objects
+                         json_string (str): a string
+                         containing class dictionary objects
 
                     Returns:
                          class list
@@ -82,7 +84,7 @@ class Base:
         if cls.__name__ == "Rectangle":
             dummy_rect = cls(0, 0, 0, 0, 0)
         else:
-            dummy_rect = cls(0,0,0,0)
+            dummy_rect = cls(0, 0, 0, 0)
         dummy_rect.update(**dictionary)
         return dummy_rect
 
@@ -90,10 +92,10 @@ class Base:
     def load_from_file(cls):
         fname = cls.__name__
         try:
-            fp = open(f"{fname}.json",mode="r",encoding="utf-8")
+            fp = open(f"{fname}.json", mode="r", encoding="utf-8")
             contents = fp.read()
             fp.close()
-        except:
+        except BaseException:
             return "[]"
         else:
             item_class_list = cls.from_json_string(contents)
@@ -102,5 +104,3 @@ class Base:
                 retval.append(cls.create(**item))
 
             return retval
-
-

@@ -178,7 +178,8 @@ class Rectangle(Base):
                          self.__height (int): The second number to multiply.
 
                     Returns:
-                         int: The product of the width and height of a quadrilateral.
+                         int: The product of the
+                         width and height of a quadrilateral.
                 """
         self.__result = self.__width * self.__height
 
@@ -205,7 +206,8 @@ class Rectangle(Base):
         is a magic method that returns pretty formatted string
         that is of significance to user
         """
-        formatted_string = "[{rect}] ({id:d}) {x:d}/{y:d} - {width:d}/{height:d}".format(
+        formatted_string = "[{rect}] ({id:d}) {x:d}/{y:d} - \
+                {width:d}/{height:d}".format(
             rect=self.__class__.__name__,
             id=self.id,
             x=self.__x,
