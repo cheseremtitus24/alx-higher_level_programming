@@ -81,6 +81,12 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """
+        This class method expands the key:value
+        pair of instance attributes and uses
+        the update(**kwargs)
+        and then returns the updated instance object
+        """
         if cls.__name__ == "Rectangle":
             dummy_rect = cls(0, 0, 0, 0, 0)
         else:
@@ -90,6 +96,13 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """
+        Uses the create method and the
+        key value pairs from a file
+        and uses these to create and
+        return an instance of dicts in
+        a list
+        """
         fname = cls.__name__
         try:
             fp = open(f"{fname}.json", mode="r", encoding="utf-8")
