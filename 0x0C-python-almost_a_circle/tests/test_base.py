@@ -20,6 +20,11 @@ class TestBase(unittest.TestCase):
         del self.Base
 
     def test_id_autogen(self):
+        """
+        These are module setUp
+        Teardown Methods
+        :return:
+        """
         # id is a positive number
         self.b0 = self.Base(3)
         self.assertEqual(self.b0.id, 3)
@@ -38,14 +43,29 @@ class TestBase(unittest.TestCase):
 
     @unittest.skip("Not yet implemented")
     def test_save_to_file(cls, list_objs):
+        """
+        These are module setUp
+        Teardown Methods
+        :return:
+        """
         pass
 
     @unittest.skip("Not yet implemented")
     def test_from_json_string(json_string):
+        """
+        These are module setUp
+        Teardown Methods
+        :return:
+        """
         pass
 
     @unittest.skip("Not yet implemented")
     def test_create(cls, **dictionary):
+        """
+        These are module setUp
+        Teardown Methods
+        :return:
+        """
         pass
 
 
