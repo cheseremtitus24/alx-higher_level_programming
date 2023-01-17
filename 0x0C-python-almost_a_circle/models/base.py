@@ -32,6 +32,7 @@ class Base:
             self.id = self.__class__.__nb_objects
 
 
+    @staticmethod
     def to_json_string(list_dictionaries):
         """
         dumps a list of dictionaries and serializes them

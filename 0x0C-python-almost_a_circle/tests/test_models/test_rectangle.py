@@ -2,6 +2,7 @@
 import io
 import sys
 import unittest
+import json
 
 
 class TestRectangle(unittest.TestCase):
@@ -507,9 +508,51 @@ class TestRectangleMagicStrMethod(unittest.TestCase):
     pass
 
 
-@unittest.skip("Not yet Implemented")
+#@unittest.skip("Not yet Implemented")
 class TestRectangleToDictionary(unittest.TestCase):
-    pass
+    def setUp(self):
+        """
+        These are module setUp
+        Teardown Methods
+        :return:
+        """
+        self.Rectangle = __import__('models').rectangle.Rectangle
+
+    def tearDown(self):
+        """
+        These are module setUp
+        Teardown Methods
+        :return:
+        """
+        del self.b0
+        del self.Rectangle
+    """
+    Tests the serialization and deserialization of
+    dictionary objects using the json module
+    """
+    @unittest.skip("Not yet Implemented")
+    def test_to_json_string(self):
+        """
+        Tests that contents of a dictionary are
+        serialized into a json string and that
+        the string is returned
+        """
+        self.b0 = self.Rectangle(10, 7, 2, 8)
+        dictionary = self.b0.to_dictionary()
+        json_dictionary = self.b0.to_json_string([dictionary])
+        # redirect stdout to a buffer
+        sys.stdout = io.StringIO()
+        # call the function that should print something
+        print(json_dictionary)
+        # get the contents of the buffer
+        output = sys.stdout.getvalue()
+        # check the contents against expected output
+        expected_dict = "[{\"x\": 2, \"width\": 10, \"id\": 1, \"height\": 7, \"y\": 8}]\n"
+        self.assertDictEqual(output,expected_dict)
+        # translate them back to dict objects
+        
+        # reset stdout
+        sys.stdout = sys.__stdout__
 
 
 if __name__ == "__main__":
