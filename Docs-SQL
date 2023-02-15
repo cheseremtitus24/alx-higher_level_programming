@@ -1,0 +1,2 @@
+# Query to retrieve the query used in the creation of a table
+SHOW CREATE TABLE <table_name>
