@@ -3,7 +3,7 @@
 -- Also creates the user
 -- user_0d_2 with password user_0d_2_pwd
 -- Handles Duplicates of DB_name and DB_User
-CREATE DATABASE IF NOT EXISTS 'hbtn_0d_usa';
+CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 
 -- script creates a database TABLE
 -- states that has 2 fields
