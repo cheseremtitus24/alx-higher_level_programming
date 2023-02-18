@@ -1,0 +1,46 @@
+# Mysql User Management
+# creating a DB User 
+mysql>CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'password';
+# Deleting a DB User
+DROP USER 'sammy'@'localhost';
+
+# Reviewing User's Permissions
+You can review a user’s current permissions by running the SHOW GRANTS command:
+mysql> SHOW GRANTS FOR 'username'@'host';
+
+# Granting user permissions on Databases and Tables. *.*,database.table
+
+# N/B  WITH GRANT OPTION. This will allow your MySQL user to grant any permissions that it has to other users on the system.
+
+mysql>GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'sammy'@'localhost' WITH GRANT OPTION;
+
+# Revoking Granted Permissions.
+mysql> REVOKE type_of_permission ON database_name.table_name FROM 'username'@'host';
+
+
+### Granting Fine Grained Privileges on columns
+Column privileges apply to single columns in a table.  You must specify the column or columns for each privilege, for example:
+
+GRANT 
+   SELECT (employeeNumner,lastName, firstName,email), 
+   UPDATE(lastName) 
+ON bidco.employees 
+TO bob@localhost;
+
+Code language: SQL (Structured Query Language) (sql)
+In this example, bob@localhost can select data from four columns employeeNumber, lastName, firstName, and email and update only the lastName column in the employees table from within the bidco database.
+
+## Granting Proxy Privileges to a User
+Proxy user privileges allow one user to be a proxy for another. The proxy user gets all privileges of the proxied user. For example:
+
+GRANT PROXY 
+ON root 
+TO alice@localhost;
+Code language: SQL (Structured Query Language) (sql)
+In this example, alice@localhost assumes all privileges of root.
+
+Finally, specify the account name of the user that you want to grant privileges after the TO keyword.
+
+Notice that in order to use the GRANT statement, you must have the GRANT OPTION privilege and the privileges that you are granting. If the read_only system variable is enabled, you need to have the SUPER privilege to execute the GRANT statement.
+
+

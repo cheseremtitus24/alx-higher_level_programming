@@ -1,0 +1,40 @@
+#ENUM constraint
+An ENUM is a string object with a value chosen from a list of permitted values. They are enumerated explicitly in the column specification at table creation time.
+
+mysql> CREATE TABLE Shops(Id INTEGER, Name VARCHAR(55), 
+    -> Quality ENUM('High', 'Average', 'Low'));
+We have a Shops table. The table has an Id, Name, and Quality columns defined. The Quality column is an ENUM. It permits to have one of three specified values: High, Average, or Low.
+
+mysql> INSERT INTO Shops VALUES(1, 'Boneys', 'High');
+mysql> INSERT INTO Shops VALUES(2, 'AC River', 'Average');
+mysql> INSERT INTO Shops VALUES(3, 'AT 34', '**');
+mysql> SELECT * FROM Shops;
++------+----------+---------+
+| Id   | Name     | Quality |
++------+----------+---------+
+|    1 | Boneys   | High    |
+|    2 | AC River | Average |
+|    3 | AT 34    |         |
++------+----------+---------+
+In the first two statements, we have inserted two rows. In the third case, the value is not available in the ENUM. In this case an empty string is inserted.
+
+#SET constraint
+A SET can have zero or more values. Each of the values must be chosen from a list of permitted values.
+
+mysql> CREATE TABLE Students(Id INTEGER, Name VARCHAR(55), 
+    -> Certificates SET('A1', 'A2', 'B1', 'C1')); 
+We have a Students table. In this table, we have a Certificates column. Each student can have 0, 1 or more of these certificates. This is different from the ENUM constraint, where you can have only one distinct value from the list of permitted values.
+
+mysql> INSERT INTO Students VALUES(1, 'Paul', 'A1,B1');
+mysql> INSERT INTO Students VALUES(2, 'Jane', 'A1,B1,A2');
+mysql> INSERT INTO Students VALUES(3, 'Mark', 'A1,A2,D1,D2');
+mysql> SELECT * FROM Students;
++------+------+--------------+
+| Id   | Name | Certificates |
++------+------+--------------+
+|    1 | Paul | A1,B1        |
+|    2 | Jane | A1,A2,B1     |
+|    3 | Mark | A1,A2        |
++------+------+--------------+
+Paul has two certificates, Jane has three, Mark has four, but only two of them are recognised, so only the first two were written to the table. The certificates are separated by commas. No spaces are allowed.
+
