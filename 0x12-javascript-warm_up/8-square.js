@@ -13,10 +13,11 @@ if (valToInt === 0) {
 (valToInt)
   ? (() => {
       for (let i = 0; i < valToInt; i++) {
+        let row = '';
         for (let j = 0; j < valToInt; j++) {
-          process.stdout.write('X');
+          row += 'X';
         }
-        console.log('');
+        console.log(row);
       }
     })()
   : console.log('Missing size');
