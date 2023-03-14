@@ -7,10 +7,7 @@
  * that makes use of an arrow function
  */
 const valToInt = parseInt(process.argv[2]);
-if (valToInt === 0) {
-  process.exit(0);
-}
-(valToInt)
+(valToInt || valToInt === 0)
   ? (() => {
       for (let i = 0; i < valToInt; i++) {
         let row = '';
