@@ -1,0 +1,134 @@
+# Variable Definition
+
+The "let" keyword is used in declaring local variables.
+
+Event Handlers
+
+Anonymous Functions
+
+document.querySelector("html").addEventListener("click", function () {
+  alert("Ouch! Stop poking me!");
+});
+
+2. Arrow Function 
+document.querySelector("html").addEventListener("click", () => {
+  alert("Ouch! Stop poking me!");
+});
+
+# Methods of Assigning Anonymous Function
+const myImage = document.querySelector("img");
+
+myImage.onclick = () => {
+  const mySrc = myImage.getAttribute("src");
+  if (mySrc === "images/firefox-icon.png") {
+    myImage.setAttribute("src", "images/firefox2.png");
+  } else {
+    myImage.setAttribute("src", "images/firefox-icon.png");
+  }
+};
+
+# Using the WebStorage API to store values in a dictionary
+# N/B How to prompt for user input using the prompt() - Function
+
+ const myName = prompt("Please enter your name.");
+
+localStorage.setItem("name", myName);
+
+# Methods of Assigning Anonymous Function
+const myImage = document.querySelector("img");
+
+myImage.onclick = () => {
+  const mySrc = myImage.getAttribute("src");
+  if (mySrc === "images/firefox-icon.png") {
+    myImage.setAttribute("src", "images/firefox2.png");
+  } else {
+    myImage.setAttribute("src", "images/firefox-icon.png");
+  }
+};
+
+# Using the WebStorage API to store values in a dictionary
+# N/B How to prompt for user input using the prompt() - Function
+
+ const myName = prompt("Please enter your name.");
+
+localStorage.setItem("name", myName);
+
+# Methods of Assigning Anonymous Function
+const myImage = document.querySelector("img");
+
+myImage.onclick = () => {
+  const mySrc = myImage.getAttribute("src");
+  if (mySrc === "images/firefox-icon.png") {
+    myImage.setAttribute("src", "images/firefox2.png");
+  } else {
+    myImage.setAttribute("src", "images/firefox-icon.png");
+  }
+};
+
+# Using the WebStorage API to store values in a dictionary
+# N/B How to prompt for user input using the prompt() - Function
+
+ const myName = prompt("Please enter your name.");
+			 dict(key:value)
+	localStorage.setItem("name", myName);
+	if(!localStorage.getItem('name')) {
+	  setUserName();
+	} else {
+	  let storedName = localStorage.getItem('name');
+	  myHeading.innerHTML = 'Mozilla is cool, ' + storedName;
+	}
+
+# Concepts:
+Dynamic Typing - means that the language does not have to know the data type of a variable prior to declaration/definition.
+
+Therefore: let myAge = 22 --> Does not require the datatype ::int::
+
+Weak Typing - Javascript enables for implicit type conversions without throwing off error for example;
+
+const foo = 42
+const result = foo + "1"
+console.log(result) # will output the string "421" 
+# The program will convert the integer value into a string rather than the inverse.
+
+
+##############33 Robust test for null and undefined Primitive Values ######
+# more Robust test is to combine check for null and undefined variable values
+if (!Object.is(myVar, undefined) && !Object.is(myVar,null) {
+    console.log("myVar is DEFINED");
+}
+# which reads as - print myVar is DEFINED -> only when
+#its value is defined and its value is not null
+
+#############3333 Primitive Wrapper Functions #############
+num = 2.12555
+2.12555
+num.toPrecision(4)
+'2.126'
+num.toString()
+'2.12555'
+num.toLocaleString()
+'2.126'
+
+## String Primitives
+
+let myName = "hello"
+undefined
+myName.toLocaleLowerCase()
+'hello'
+myName.toUpperCase()
+'HELLO'
+myName.toLocaleUpperCase()
+'HELLO'
+myName.fontsize(44)
+'<font size="44">hello</font>'
+myName.trim[end,left,start] // Values within the brackets are optional
+
+
+#############3 Key Note on Strings that may be used to Optimize Memory Storage ###########3
+
+JavaScript strings are immutable. This means that once a string is created, it is not possible to modify it. String methods create new strings based on the content of the current string — for example:
+
+A substring of the original using substring().
+A concatenation of two strings using the concatenation operator (+) or concat().
+
+

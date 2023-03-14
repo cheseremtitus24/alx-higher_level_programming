@@ -1,0 +1,4 @@
+semi-standard
+
+installation
+: sudo npm install semistandard --global
