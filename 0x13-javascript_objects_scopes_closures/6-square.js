@@ -31,11 +31,12 @@ class Rectangle {
   }
 }
 
-module.exports = class Square extends Rectangle {
+class Square extends Rectangle {
   constructor (size) {
     super(size, size);
   }
-
+}
+module.exports = class PSquare extends Square {
   charPrint (symbol = 'X') {
     for (let i = 0; i < this.height; i++) {
       let out = '';
