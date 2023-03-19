@@ -39,8 +39,7 @@ def select_query(MY_USER, MY_PASS, MY_DB, MY_STATE):
     # Get data from database
     try:
         cursor.execute(
-            "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC",
-            MY_STATE)
+                "SELECT * FROM states WHERE name LIKE BINARY {:s} ORDER BY id ASC".format(MY_STATE))
         rows = cursor.fetchall()
     except (MySQLdb.Error, e):
         try:
