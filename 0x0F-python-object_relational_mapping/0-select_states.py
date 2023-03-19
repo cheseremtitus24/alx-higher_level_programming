@@ -8,14 +8,27 @@ a database query to retrieve all the rows from the table
 named states
 """
 
-args_length = len(sys.argv)
-if args_length == 4:
-    MY_HOST = 'localhost'
-    MY_USER = sys.argv[1]
-    MY_PASS = sys.argv[2]
-    MY_DB = sys.argv[3]  # 'hbtn_0e_0_usa'
-    db = MySQLdb.connect(host=MY_HOST, user=MY_USER, passwd=MY_PASS, db=MY_DB)
 
+def select_query(MY_USER, MY_PASS, MY_DB):
+    """ Prints table rows in a tuple format from the table states
+
+
+        Parameters
+        ----------
+        MY_USER: str,
+            The database username
+        MY_PASS: str,
+            The database password
+        MY_DB: str,
+            The database name to make queries to
+
+        Raises
+        ------
+       MYSQLdb.Error
+            If database connection fails
+    """
+    MY_HOST = 'localhost'
+    db = MySQLdb.connect(host=MY_HOST, user=MY_USER, passwd=MY_PASS, db=MY_DB)
     cursor = db.cursor()
 
     # Get data from database
@@ -36,6 +49,14 @@ if args_length == 4:
         cursor.close()
         # Close all databases
         db.close()
+
+
+args_length = len(sys.argv)
+if args_length == 4:
+    MY_USER = sys.argv[1]
+    MY_PASS = sys.argv[2]
+    MY_DB = sys.argv[3]  # 'hbtn_0e_0_usa'
+    select_query(MY_USER, MY_PASS, MY_DB)
 else:
     print(
         f"Usage: {sys.argv[0]} <db_username> <db_password> <db_name> ",
