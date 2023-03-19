@@ -56,13 +56,14 @@ def select_query(MY_USER, MY_PASS, MY_DB):
         db.close()
 
 
-args_length = len(sys.argv)
-if args_length == 4:
-    MY_USER = sys.argv[1]
-    MY_PASS = sys.argv[2]
-    MY_DB = sys.argv[3]  # 'hbtn_0e_0_usa'
-    select_query(MY_USER, MY_PASS, MY_DB)
-else:
-    print(
-        f"Usage: {sys.argv[0]} <db_username> <db_password> <db_name> ",
-        file=sys.stderr)
+if __name__ == '__main__':
+    args_length = len(sys.argv)
+    if args_length == 4:
+        MY_USER = sys.argv[1]
+        MY_PASS = sys.argv[2]
+        MY_DB = sys.argv[3]  # 'hbtn_0e_0_usa'
+        select_query(MY_USER, MY_PASS, MY_DB)
+    else:
+        print(
+            f"Usage: {sys.argv[0]} <db_username> <db_password> <db_name> ",
+            file=sys.stderr)
