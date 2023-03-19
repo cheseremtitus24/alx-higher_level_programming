@@ -28,7 +28,12 @@ def select_query(MY_USER, MY_PASS, MY_DB):
             If database connection fails
     """
     MY_HOST = 'localhost'
-    db = MySQLdb.connect(host=MY_HOST, user=MY_USER, passwd=MY_PASS, db=MY_DB)
+    db = MySQLdb.connect(
+        host=MY_HOST,
+        user=MY_USER,
+        port=3306,
+        passwd=MY_PASS,
+        db=MY_DB)
     cursor = db.cursor()
 
     # Get data from database
