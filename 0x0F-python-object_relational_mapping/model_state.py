@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 This module creates a table named states
 that has an id and a name field
