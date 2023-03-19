@@ -2,6 +2,12 @@
 import MySQLdb
 import sys
 
+""" 
+This module takes in commandline arguments and performs
+a database query to retrieve all the rows from the table
+named states
+"""
+
 args_length = len(sys.argv)
 if args_length == 4:
     MY_HOST = 'localhost'
