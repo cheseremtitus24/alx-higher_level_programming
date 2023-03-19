@@ -1,4 +1,6 @@
 # Mysql User Management
+# List Active user accounts;
+mysql >  select user,host from mysql.user;
 # creating a DB User 
 mysql>CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'password';
 # Deleting a DB User
@@ -16,6 +18,14 @@ mysql>GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, REL
 
 # Revoking Granted Permissions.
 mysql> REVOKE type_of_permission ON database_name.table_name FROM 'username'@'host';
+
+#Grant all permissions to user 
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'cheserem'@'%' with grant option;
+Query OK, 0 rows affected (0.43 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.08 sec)
+
 
 
 ### Granting Fine Grained Privileges on columns
