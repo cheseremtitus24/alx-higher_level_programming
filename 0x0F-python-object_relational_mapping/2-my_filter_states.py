@@ -3,13 +3,13 @@
 This module takes in commandline arguments and performs
 a database query to retrieve all the rows from the table
 named states by applying a filter to capture the names
-of states that begin with an 'n'
+of states that are passed in via commandline argument
 """
 import MySQLdb
 import sys
 
 
-def select_query(MY_USER, MY_PASS, MY_DB):
+def select_query(MY_USER, MY_PASS, MY_DB, MY_STATE):
     """ Prints table rows in a tuple format from the table states
 
 
@@ -39,7 +39,7 @@ def select_query(MY_USER, MY_PASS, MY_DB):
     # Get data from database
     try:
         cursor.execute(
-            "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
+            "SELECT * FROM states WHERE name LIKE BINARY '%{}%' ORDER BY id ASC".format(MY_STATE))
         rows = cursor.fetchall()
     except (MySQLdb.Error, e):
         try:
@@ -59,12 +59,13 @@ def select_query(MY_USER, MY_PASS, MY_DB):
 
 if __name__ == '__main__':
     args_length = len(sys.argv)
-    if args_length == 4:
+    if args_length == 5:
         MY_USER = sys.argv[1]
         MY_PASS = sys.argv[2]
         MY_DB = sys.argv[3]  # 'hbtn_0e_0_usa'
-        select_query(MY_USER, MY_PASS, MY_DB)
+        MY_STATE = sys.argv[4]  # 'hbtn_0e_0_usa'
+        select_query(MY_USER, MY_PASS, MY_DB, MY_STATE)
     else:
         print(
-            f"Usage: {sys.argv[0]} <db_username> <db_password> <db_name> ",
+            f"Usage: {sys.argv[0]} <db_username> <db_password> <db_name> <state_name>",
             file=sys.stderr)
