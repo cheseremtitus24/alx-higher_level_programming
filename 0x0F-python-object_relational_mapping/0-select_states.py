@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-import MySQLdb
-import sys
-
 """
 This module takes in commandline arguments and performs
 a database query to retrieve all the rows from the table
 named states
 """
+import MySQLdb
+import sys
 
 
 def select_query(MY_USER, MY_PASS, MY_DB):
