@@ -38,7 +38,7 @@ def select_query(MY_USER, MY_PASS, MY_DB):
     # Get data from database
     try:
         cursor.execute(
-            "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+            "SELECT * FROM states WHERE name LIKE 'ne%' ORDER BY id ASC")
         rows = cursor.fetchall()
     except (MySQLdb.Error, e):
         try:
