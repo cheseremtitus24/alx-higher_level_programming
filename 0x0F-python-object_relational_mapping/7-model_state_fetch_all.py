@@ -30,4 +30,4 @@ if __name__ == "__main__":
 
     query = session.query(State).order_by(State.id)
     for _row in query.all():
-        print("{}: {}".format(_row.id, _row.name))
+        print("{:d}: {:s}".format(_row.id, _row.name))
