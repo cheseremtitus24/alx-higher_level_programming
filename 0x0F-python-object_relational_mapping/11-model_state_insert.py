@@ -32,5 +32,7 @@ if __name__ == "__main__":
     ]
 
     # add row entries all
-    session.add_all(users)
+    query = session.add_all(users)
     session.commit()
+    print(users[0].id)
+
