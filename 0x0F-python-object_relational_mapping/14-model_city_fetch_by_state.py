@@ -7,13 +7,11 @@ on the primary key column
 """
 import sys
 
+from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
-from model_state import Base, State
 from model_city import Base, City
-
-from sqlalchemy import (create_engine)
-
+from model_state import State
 
 if __name__ == "__main__":
     engine = create_engine(
@@ -34,7 +32,7 @@ if __name__ == "__main__":
         State).join(
         State,
         City.state_id == State.id).order_by(
-            City.id)
+        City.id)
     for _row in query.all():
         print(
             "{:s}: ({:d}) {:s}".format(
