@@ -36,5 +36,8 @@ if __name__ == "__main__":
         City.state_id == State.id).order_by(
             City.id)
     for _row in query.all():
-        print(_row[1].name + ": (" + str(_row[0].id) + ") " + _row[0].name)
-        # print("{:d}: {:s}".format(_row.id, _row.name))
+        print(
+            "{:s}: ({:d}) {:s}".format(
+                _row[1].name,
+                _row[0].id,
+                _row[0].name))
