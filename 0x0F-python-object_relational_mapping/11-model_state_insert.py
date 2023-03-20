@@ -1,10 +1,8 @@
 #!/usr/bin/python3
 """
 This module Makes use of an ORM
-that Retrieves the first row from the table states
-and orders them in ascending order based
-on the primary key column
-if table is empty it return prints 'Nothing'
+that adds a row entry to the table
+states
 """
 import sys
 
@@ -30,8 +28,7 @@ if __name__ == "__main__":
     session = Session()
 
     users = [
-        State(name='Louisiana'
-              ),
+        State(name='Louisiana'),
     ]
 
     # add row entries all
