@@ -1,10 +1,21 @@
 #!/usr/bin/python3
+"""
+This module sends a get request to a url and returns
+response body as well as an HTTP-client object.
+
+"""
 import sys
 from urllib.error import HTTPError, URLError
 from urllib.request import urlopen
 
 
 def make_request(url):
+    """
+    :param url: resource URL to get content from
+    :return: request body and http client object
+    :raises: No exceptions but handles HTTPError,
+    URLError and TimeoutError
+    """
     try:
         with urlopen(url, timeout=10) as response:
             # print(response.status)
