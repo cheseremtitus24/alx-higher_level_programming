@@ -1,0 +1,55 @@
+# Assignment Operators are right associative
+a = b = 5; // same as writing a = (b = 5);
+# Exponentials are right associative as well
+const a = 4 ** 3 ** 2; // Same as 4 ** (3 ** 2); evaluates to 262144
+# Division Operators are left associative
+const b = 4 / 3 / 2; // Same as (4 / 3) / 2; evaluates to 0.6666.
+
+### NOTE
+Operators are first grouped by precedence (which operator is evaluated first ?), and then, for adjacent operators that have the same precedence, by associativity (how do we group evaluations?).
+
+2 ** 3 / 3 ** 2 # (2 ** 3) / (3 ** 2)
+
+# Unary Operator group e.g (typeof var)
+For prefix unary operators, suppose we have the following pattern:
+
+OP1 a OP2 b
+Copy to Clipboard
+where OP1 is a prefix unary operator and OP2 is a binary operator. If OP1 has higher precedence than OP2, then it would be grouped as (OP1 a) OP2 b; otherwise, it would be OP1 (a OP2 b).
+
+########## Trick Question ###########3
+Evaluate the following:
+
+1 + 2 ** 3 * 4 / 5 >> 6
+
+The ** operator has the highest precedence, so it's grouped first.
+1 + (2**3) * 4 / 5 >> 6
+# hint -> + has higher precedence than >>
+2. 1 + ( (8) * 4 / 5) >> 6
+3. 1 + ( 8 * 4 / 5) >> 6
+
+# echo() has higher precedence than ** therefore it's evaluated first
+function echo(name, num) {
+  console.log(`Evaluating the ${name} side`);
+  return num;
+}
+console.log(echo("left", 4) ** echo("middle", 3) ** echo("right", 2));
+
+
+# Operator_Precedence -> Short-circuiting
+For example, in the expression: a && (b + c)
+	 if a is falsy, then the sub-expression (b + c) will not even get evaluated, even if it is grouped and therefore has higher precedence than &&.
+N/B : We could say that the logical AND operator (&&) is "short-circuited". 
+
+ other short-circuited operators include:
+	 logical OR (||),
+
+	 nullish coalescing (??) a ?? (b || c); // evaluate `a` first, then produce `a` if `a` is not `null` and not `undefined`
+
+	 optional chaining (?.). a?.b.c; // evaluate `a` first, then produce `undefined` if `a` is `null` or `undefined`
+
+
+
+
+(-1) ** 2 == Correct
+-1 ** 2  == Incorrect

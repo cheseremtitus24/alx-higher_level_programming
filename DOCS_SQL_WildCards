@@ -1,0 +1,27 @@
+# MYSQL Database WildCards
+
+#Wildcard '%'- Matches 0 or more xters
+
+SELECT * FROM movies WHERE title LIKE 'code%'; 
+Displays all items that begin with code and can be followed by 0 or more xters
+e.g
+codeproj, code fit, code
+
+SELECT * FROM movies WHERE title LIKE '%code%';
+Will match any items that has a title with code at the beginning, end or in the middle of its text e.g
+codeproj, projcode, project code hello
+
+SELECT * FROM movies WHERE title LIKE '%code';
+Will match and return row when string code terminates a string
+e.g
+code, projectcode, hello code
+
+#Wildcard '_' - Matches exactly one xter
+
+SELECT * FROM movies WHERE year_released LIKE '200_';
+will match all movies released btwn 200[0-9]
+
+###Negation
+SELECT * FROM movies WHERE year_released NOT LIKE '200_';
+
+
