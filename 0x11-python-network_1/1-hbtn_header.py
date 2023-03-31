@@ -38,7 +38,3 @@ if __name__ == '__main__':
         # print(body)
         # print(type(headers))
         print(headers.get('X-Request-Id'))
-    else:
-        print(
-            f"Usage: {sys.argv[0]} <url>", file=sys.stderr)
-        sys.exit(0)
