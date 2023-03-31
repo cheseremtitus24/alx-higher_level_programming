@@ -29,10 +29,16 @@ def make_request(url):
 
 
 if __name__ == '__main__':
-    url = sys.argv[1]
-    # body, response = make_request("https://alx-intranet.hbtn.io/status")
-    body, response = make_request(url)
-    headers = response.headers
-    # print(body)
-    # print(type(headers))
-    print(headers.get('X-Request-Id'))
+    args_length = len(sys.argv)
+    if args_length == 2:
+        url = sys.argv[1]
+        # body, response = make_request("https://alx-intranet.hbtn.io/status")
+        body, response = make_request(url)
+        headers = response.headers
+        # print(body)
+        # print(type(headers))
+        print(headers.get('X-Request-Id'))
+    else:
+        print(
+            f"Usage: {sys.argv[0]} <url>", file=sys.stderr)
+        sys.exit(0)
