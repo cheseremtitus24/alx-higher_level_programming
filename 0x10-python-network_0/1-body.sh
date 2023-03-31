@@ -6,6 +6,6 @@ page_body=$(curl -sL "$commandline_argument_1")
 
 if test "$status_code" -eq 200
 then
-	echo -n "$page_body";
+	echo "$page_body";
 fi
 
