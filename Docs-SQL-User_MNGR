@@ -13,6 +13,8 @@ mysql> SHOW GRANTS FOR 'username'@'host';
 # N/B  WITH GRANT OPTION. This will allow your MySQL user to grant any permissions that it has to other users on the system.
 
 mysql>GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'sammy'@'localhost' WITH GRANT OPTION;
+mysql> GRANT ALL PRIVILEGES TO 'sammy'@'%' WITH GRANT OPTION;
+mysql> FLUSH PRIVILEGES;
 
 # Revoking Granted Permissions.
 mysql> REVOKE type_of_permission ON database_name.table_name FROM 'username'@'host';
