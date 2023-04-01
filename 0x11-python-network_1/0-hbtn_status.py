@@ -4,12 +4,12 @@ This module sends a get request to a url and returns
 response body as well as an HTTP-client object.
 
 """
-from urllib.request import urlopen
+import urllib.request
 
 
 if __name__ == '__main__':
     url = 'https://alx-intranet.hbtn.io/status'
-    with urlopen(url, timeout=10) as response:
+    with urllib.request.urlopen(url, timeout=10) as response:
         body, response = response.read(), response
         body_type = type(body)
         character_set = response.headers.get_content_charset()
