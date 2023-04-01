@@ -6,6 +6,7 @@ web url then output its payload on-screen
 
 import requests
 
+
 def make_request(url, params=None, data=None, headers=None):
     """
         :param url: resource URL to get content from
@@ -19,8 +20,8 @@ def make_request(url, params=None, data=None, headers=None):
     # print(response.status_code)
     return (response.text, response)
 
+
 if __name__ == '__main__':
     url = 'https://alx-intranet.hbtn.io/status'
     body, response = make_request(url=url)
     print("Body response:\n\t- type: {}\n\t- content: {}".format(type(body), body))
-
