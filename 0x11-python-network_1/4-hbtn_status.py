@@ -5,8 +5,6 @@ web url then output its payload on-screen
 """
 
 import requests
-from contextlib import closing
-
 from requests import HTTPError
 
 
@@ -16,9 +14,9 @@ def make_request(url):
         :return: request body and http client object
     """
     try:
-        with closing(requests.get(url=url, stream=True, timeout=10)) as response:
-            # print(response.status)
-            return (response.text, response)
+        response = requests.get(url=url, timeout=10)
+        # print(response.status)
+        return response.text, response
     except HTTPError as error:
         print(error.status, error.reason)
     except TimeoutError:
@@ -31,4 +29,4 @@ if __name__ == '__main__':
         body, response = make_request(url=url)
         print("Body response:\n\t- type: {}\n\t- content: {}".format(type(body), body))
     except BaseException as e:
-        pass
+        print(e)
