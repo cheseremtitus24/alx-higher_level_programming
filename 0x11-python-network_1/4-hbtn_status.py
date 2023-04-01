@@ -14,7 +14,8 @@ def make_request(url):
         :return: request body and http client object
     """
     try:
-        response = requests.get(url=url, timeout=10)
+        with requests.Session() as s:
+            response = s.get(url=url, timeout=10)
         # print(response.status)
         return response.text, response
     except HTTPError as error:
@@ -27,6 +28,6 @@ if __name__ == '__main__':
     url = 'https://alx-intranet.hbtn.io/status'
     try:
         body, response = make_request(url=url)
-        print("Body response:\n\t- type: {}\n\t- content: {}".format(type(body), body))
+        print("Body response:\n\t- type: {}\n\t- content: {:s}".format(type(body), body))
     except BaseException as e:
         print(e)
