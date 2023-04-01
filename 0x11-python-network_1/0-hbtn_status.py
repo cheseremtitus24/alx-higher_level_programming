@@ -4,8 +4,6 @@ This module sends a get request to a url and returns
 response body as well as an HTTP-client object.
 
 """
-import sys
-from urllib.error import HTTPError, URLError
 from urllib.request import urlopen
 
 
