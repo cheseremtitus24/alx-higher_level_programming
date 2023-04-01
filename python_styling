@@ -1,0 +1,13 @@
+pip install pycodestyle
+> pycodestyle checkme.py
+pip install autopep8
+autopep8 --in-place --aggressive --aggressive <filename>
+bash$ alias autopep8="autopep8 --in-place --aggressive --aggressive "
+bash$ autopep8 autofixme.py
+
+# Example Usage 
+cheserem@cheserem:~/alx-higher_level_programming/0x11-python-network_1$ pycodestyle 0-hbtn_status.py 
+0-hbtn_status.py:10:18: E211 whitespace before '('
+cheserem@cheserem:~/alx-higher_level_programming/0x11-python-network_1$ autopep8 0-hbtn_status.py 
+cheserem@cheserem:~/alx-higher_level_programming/0x11-python-network_1$ pycodestyle 0-hbtn_status.python
+

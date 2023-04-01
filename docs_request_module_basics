@@ -1,0 +1,87 @@
+```
+>>> import requests
+>>> requests.get('https://api.github.com')
+<Response [200]>
+>>> response = requests.get('https://api.github.com')
+# Check the available methods of response
+>>> dir(response)
+['__attrs__', '__bool__', '__class__', '__delattr__', '__dict__', '__dir__', '__ doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattribu te__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '_ _iter__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__nonzero__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__siz eof__', '__str__', '__subclasshook__', '__weakref__', '_content', '_content_cons umed', '_next', 'apparent_encoding', 'close', 'connection', 'content', 'cookies' , 'elapsed', 'encoding', 'headers', 'history', 'is_permanent_redirect', 'is_redi rect', 'iter_content', 'iter_lines', 'json', 'links', 'next', 'ok', 'raise_for_s tatus', 'raw', 'reason', 'request', 'status_code', 'text', 'url']
+>>> response.status_code
+200
+>>> response.reason
+'OK'
+```
+
+If you use a Response instance in a conditional expression, it will evaluate to True if the status code was between 200 and 400, and False otherwise.
+
+```
+if response:
+    print('Success!')
+else:
+    print('An error has occurred.')
+```
+
+Tricky response that can be difficult to debug is :
+For example, the 204 tells you that the response was successful, but there’s no content to return in the message body.
+
+Let’s say you don’t want to check the response’s status code in an if statement. Instead, you want to raise an exception if the request was unsuccessful. You can do this using `.raise_for_status()`:
+
+```
+import requests
+from requests.exceptions import HTTPError
+
+for url in ['https://api.github.com', 'https://api.github.com/invalid']:
+    try:
+        response = requests.get(url)
+
+        # If the response was successful, no Exception will be raised
+        response.raise_for_status()
+    except HTTPError as http_err:
+        print(f'HTTP error occurred: {http_err}')  # Python 3.6
+    except Exception as err:
+        print(f'Other error occurred: {err}')  # Python 3.6
+    else:
+        print('Success!')
+```
+
+# Viewing Request content
+###view response's content in `bytes`
+```
+>>> response = requests.get('https://api.github.com')
+>>> response.content
+b'{"current_user_url":"https://api.github.com/user",}'
+```
+
+###Decode bytes to string. - request does this 4 u when you use the method `.text`
+```
+>>> response.text
+'{"current_user_url":"https://api.github.com/user",}'
+```
+-requests guesses the encoding based on the received headers but you can explicitly specify an encoding as shown below
+```
+>>> response.encoding = 'utf-8' # Optional: requests infers this internally
+>>> response.text
+'{"current_user_url":"https://api.github.com/user",}'
+```
+
+###Loading Serialized json to a python dictionary
+response.json() performs an equivalent of json.loads(response.text)
+
+
+
+>>> import requests
+>>> requests.get('https://api.github.com')
+<Response [200]>
+>>> response = requests.get('https://api.github.com')
+
+# Headers
+Contains info on hostname, and Cache control.
+>>> response.headers
+{'Server': 'GitHub.com', 'Date': 'Mon, 10 Dec 2018 17:49:54 GMT'}
+>>> response.headers.get('Server')
+'GitHub.com'
+>>> #header keys are case insensitive
+>>> response.headers.get('serVER')
+'GitHub.com'
+>>> 
+

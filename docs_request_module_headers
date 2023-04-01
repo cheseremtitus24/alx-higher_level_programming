@@ -1,0 +1,89 @@
+# using Parameters
+>>> import requests
+>>> #Search GitHub's repositories for requests
+>>> response = requests.get('https://api.github.com/search/repositories',
+... params={'q': 'requests+language:python'},
+... )
+### params can also be passed in as a list of tuples
+>>> requests.get(
+...     'https://api.github.com/search/repositories',
+...     params=[('q', 'requests+language:python')],
+... )
+### Can Also pass in the parameters as bytes
+>>> requests.get(
+...     'https://api.github.com/search/repositories',
+...     params=b'q=requests+language:python',
+... )
+>>> # Inspect some attributes of the requests repository
+>>> json_response = response.json()
+>>> repository = json_response['items'][0]
+>>> 
+>>> repository = json_response['items'][0]
+>>> print(f'Repository name: {repository["name"]}')
+Repository name: grequests
+>>> print(f'Repository description: {repository["description"]}')
+Repository description: Requests + Gevent = <3
+>>> 
+
+
+# Customizing Request Headers in request module
+To customize headers, you pass a dictionary of HTTP headers to get() using the `headers` parameter
+```
+>>> import requests
+>>> response = requests.get('https://api.github.com/search/repositories',
+... params={'q': 'requests+language:python'},
+... headers={'Accept':'application/vnd.github.v3.text-match+json'},
+... )
+>>> # View the new 'text-matches' array with provides information
+>>> # about your search term within the results
+>>> json_response = response.json()
+>>> repository = json_response['items'][0]
+>>> print(f'Text matches: {repository["text_matches"]}')
+Text matches: [{'object_url': 'https://api.github.com/repositories/4290214', 'ob
+ject_type': 'Repository', 'property': 'description', 'fragment': 'Requests + Gev
+ent = <3', 'matches': [{'text': 'Requests', 'indices': [0, 8]}]}]
+>>> 
+```
+
+The Accept header tells the server what content types your application can handle. 
+
+# Other HTTP Verbs/Methods
+>>> import requests
+>>> requests.post('https://httpbin.org/post', data={'key':'value'})
+>>> requests.put('https://httpbin.org/put', data={'key':'value'})
+>>> requests.delete('https://httpbin.org/delete')
+>>> requests.head('https://httpbin.org/get')
+>>> requests.patch('https://httpbin.org/patch', data={'key':'value'})
+>>> requests.options('https://httpbin.org/get')
+
+### Modifying header user Agent
+ response = requests.put('https://httpbin.org/put', data={'key':'value'}, hea
+ders={'User-Agent': 'Realme'})
+>>> response.text
+'{\n  "args": {}, \n  "data": "", \n  "files": {}, \n  "form": {\n    "key": "va lue"\n  }, \n  "headers": {\n    "Accept": "*/*", \n    "Accept-Encoding": "gzip , deflate", \n    "Content-Length": "9", \n    "Content-Type": "application/x-ww w-form-urlencoded", \n    "Host": "httpbin.org", \n    "User-Agent": "Realme", \ n    "X-Amzn-Trace-Id": "Root=1-64281692-0d72ebb361ac46dd4e7e8f79"\n  }, \n  "js on": null, \n  "origin": "154.159.237.150", \n  "url": "https://httpbin.org/put" \n}\n' 
+>>> 
+
+# NOTE
+If, however, you need to send JSON data, you can use the json parameter. When you pass JSON data via json, requests will serialize your data and add the correct Content-Type header for you.
+```
+>>> response = requests.post('https://httpbin.org/post', json={'key':'value'})
+>>> json_response = response.json()
+>>> json_response['data']
+'{"key": "value"}'
+>>> json_response['headers']['Content-Type']
+'application/json'
+```
+
+# Inspecting Your Request
+When you make a request, the requests library prepares the request before actually sending it to the destination server. Request preparation includes things like validating headers and serializing JSON content.
+
+You can view the PreparedRequest by accessing `.request`:
+>>> import requests
+>>> response = requests.post('https://httpbin.org/post', json={'key':'value'})
+>>> response.request.headers['Content-Type']
+'application/json'
+>>> response.request.url
+'https://httpbin.org/post'
+>>> response.request.body
+b'{"key": "value"}'
+
