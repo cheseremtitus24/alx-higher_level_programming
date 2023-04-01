@@ -39,7 +39,7 @@ if __name__ == '__main__':
     else:
         my_dict['q'] = ""
     url = "http://0.0.0.0:5000/search_user"
-    url = "http://e2613abfb831.f9f2e9d2.alx-cod.online:5000/search_user"
+    # url = "http://e2613abfb831.f9f2e9d2.alx-cod.online:5000/search_user"
     try:
         body, response = make_request(url=url, method='post', data=my_dict)
         # if status_code is btwn 200 and 400 response == True Else False
