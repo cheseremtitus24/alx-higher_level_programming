@@ -32,29 +32,31 @@ def make_request(url, data=None, method='get', params=None):
 
 if __name__ == '__main__':
     args_length = len(sys.argv)
+    my_dict = {}
     if args_length == 2:
         param_value = sys.argv[1]
-        my_dict = {}
         my_dict['q'] = param_value
-        url = "http://0.0.0.0:5000/search_user"
-        # url = "http://e2613abfb831.f9f2e9d2.alx-cod.online:5000/search_user"
-        try:
-            body, response = make_request(url=url, method='post', data=my_dict)
-            # if status_code is btwn 200 and 400 response == True Else False
-            if response:
-                try:
-                    result_dict = response.json()
-                except BaseException:
-                    print("Not a valid JSON")
-                else:
-                    if result_dict:
-                        id = result_dict['id']
-                        name = result_dict['name']
-                        print("[{}] {}".format(id, name))
-                    else:
-                        print("No result")
+    else:
+        my_dict['q'] = ""
+    url = "http://0.0.0.0:5000/search_user"
+    url = "http://e2613abfb831.f9f2e9d2.alx-cod.online:5000/search_user"
+    try:
+        body, response = make_request(url=url, method='post', data=my_dict)
+        # if status_code is btwn 200 and 400 response == True Else False
+        if response:
+            try:
+                result_dict = response.json()
+            except BaseException:
+                print("Not a valid JSON")
             else:
-                print("Error code:", response.status_code)
+                if result_dict:
+                    id = result_dict['id']
+                    name = result_dict['name']
+                    print("[{}] {}".format(id, name))
+                else:
+                    print("No result")
+        else:
+            print("Error code:", response.status_code)
 
-        except BaseException as e:
-            print(e)
+    except BaseException as e:
+        print(e)
