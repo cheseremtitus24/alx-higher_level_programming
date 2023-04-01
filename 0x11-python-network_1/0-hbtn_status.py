@@ -9,12 +9,12 @@ import urllib.request
 
 if __name__ == '__main__':
     url = 'https://alx-intranet.hbtn.io/status'
-    with urllib.request.urlopen(url, timeout=10) as response:
+    with urllib.request.urlopen(url) as response:
         body, response = response.read(), response
-        body_type = type(body)
-        character_set = response.headers.get_content_charset()
-        decoded_body = body.decode(character_set)
-        print("Body response:")
-        print("\t- type: {}".format(body_type))
-        print("\t- content: {}".format(body))
-        print("\t- utf8 content: {}".format(decoded_body))
+    body_type = type(body)
+    character_set = response.headers.get_content_charset()
+    decoded_body = body.decode(character_set)
+    print("Body response:")
+    print("\t- type: {}".format(body_type))
+    print("\t- content: {}".format(body))
+    print("\t- utf8 content: {}".format(decoded_body))
