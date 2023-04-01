@@ -7,6 +7,7 @@ import sys
 
 import requests
 from requests import HTTPError
+from requests.auth import HTTPBasicAuth
 
 
 def make_request(
@@ -29,7 +30,9 @@ def make_request(
                 response = s.post(
                     url=url, data=data, timeout=10, params=params)
             elif method == 'auth':
-                response = s.get(url, auth=(username, access_token))
+                response = s.get(
+                    url, timeout=10, auth=HTTPBasicAuth(
+                        username, access_token))
 
         # print(response.status_code)
         return response.text, response
