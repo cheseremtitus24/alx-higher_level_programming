@@ -61,7 +61,8 @@ if __name__ == '__main__':
                     else:
                         print("No result")
             else:
-                print("Error code:", response.status_code)
+                print("None")
+                # print("Error code:", response.status_code)
 
         except BaseException as e:
             print(e)
