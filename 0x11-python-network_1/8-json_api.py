@@ -42,13 +42,17 @@ if __name__ == '__main__':
             body, response = make_request(url=url, method='post', data=my_dict)
             # if status_code is btwn 200 and 400 response == True Else False
             if response:
-                result_dict = response.json()
-                if result_dict:
-                    id = result_dict['id']
-                    name = result_dict['name']
-                    print("[{}] {}".format(id, name))
+                try:
+                    result_dict = response.json()
+                except BaseException:
+                    print("Not a valid JSON")
                 else:
-                    print("No result")
+                    if result_dict:
+                        id = result_dict['id']
+                        name = result_dict['name']
+                        print("[{}] {}".format(id, name))
+                    else:
+                        print("No result")
             else:
                 print("Error code:", response.status_code)
 
