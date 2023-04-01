@@ -20,7 +20,7 @@ def make_request(url, headers=None, data=None):
     request = Request(url, headers=headers or {}, data=data)
     try:
         with urlopen(request, timeout=10) as response:
-            print(response.status)
+            # print(response.status)
             return response.read(), response
     except HTTPError as error:
         print(error.status, error.reason)
