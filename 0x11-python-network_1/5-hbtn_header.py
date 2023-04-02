@@ -27,8 +27,9 @@ def make_request(url):
 
 if __name__ == '__main__':
     args_length = len(sys.argv)
-    if args_length == 2:
+    if args_length == 3:
         url = sys.argv[1]
+        email = sys.argv[2]
         # body, response = make_request("https://alx-intranet.hbtn.io/status")
         try:
             body, response = make_request(url=url)

@@ -1,0 +1,24 @@
+# Authentication using the requests module
+>>> import requests
+### Method Auth 1
+>>> from requests.auth import HTTPBasicAuth
+>>> response = requests.get('https://api.github.com/user', auth=HTTPBasicAuth('cheseremtitus24@gmail.com','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'))
+#### Method Auth 2
+>>> response = requests.get('https://api.github.com/user', auth=('cheseremtitus2
+4@gmail.com','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'))
+####### Method Auth 3
+response = requests.get('https://api.github.com/user', headers={"Accept": "a pplication/vnd.github+json", "Authorization":"Bearer ghp_yEjXsg5e7Riy3g5CUpwZq31 kc4QimB3ftAe6", "X-GitHub-Api-Version": "2022-11-28"})
+
+>>> response.json().get('id')
+50730372
+>>> import pprint
+>>> pprint.pprint(response.headers)
+{'Server': 'GitHub.com', 'Date': 'Sun, 02 Apr 2023 06:48:24 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Cache-Control': 'private, max-age=60, s-maxage=60', 'Vary': 'Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding, Accept, X-Requested-With' , 'ETag': 'W/"ab5cdab39d4fac01287ee2234428ad46148ce0715f149b19f42a7f18cc115341"', 'Last-Modified': 'Thu, 30 Mar 2023 11:30:53 GMT', 'X-OAuth-Scopes': 'read:user', 'X-Accepted-OAuth-Scopes': '', 'github-authentication-token-expiration': '2023-04-08 18:41:36 UTC', 'X-GitHub-Media-Type': 'github.v3; format=json', 'x-github-api-version-selected': '2022-11-28', 'X-RateLimit-Limit': '5000', 'X-RateLimit-Remaining': '4998', 'X-RateLimit-Reset': '1680 421655', 'X-RateLimit-Used': '2', 'X-RateLimit-Resource': 'core', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll- Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Securit y': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referre r-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Content-Encoding': 'gzip', 'X-GitHub-Request-Id': '3FBD:157A:3F374:595D2:64292538'}
+ >>> 
+
+# When user is authenticated the ratelimit is higer e.g 5000 .
+
+
+
+
+

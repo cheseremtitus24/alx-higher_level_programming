@@ -87,3 +87,11 @@ You can view the PreparedRequest by accessing `.request`:
 >>> response.request.body
 b'{"key": "value"}'
 
+# Authentication
+>>> import requests
+>>> requests.get('https://api.github.com/user', auth=('cheseremtitus24@gmail.com ','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'))
+<Response [200]>
+>>> response = requests.get('https://api.github.com/user', auth=('cheseremtitus24@gmail.com','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'))
+>>> response.text
+'{"login":"cheseremtitus24", "id":"89898",}'
+

@@ -1,4 +1,7 @@
 ```
+NOTE: 
+requests goes one step further in simplifying this process for you. If you use a Response instance in a conditional expression, it will evaluate to True if the status code was between 200 and 400, and False otherwise.
+
 >>> import requests
 >>> requests.get('https://api.github.com')
 <Response [200]>
