@@ -4,7 +4,6 @@ This module makes use of the requests module to send a get request to a
 web url then output its payload on-screen
 """
 import sys
-
 import requests
 from requests import HTTPError
 from requests.auth import HTTPBasicAuth
@@ -59,8 +58,11 @@ if __name__ == '__main__':
                     print("Not a valid JSON")
                 else:
                     if result_dict:
-                        id = result_dict.get('id')
-                        print("{}".format(id))
+                        try:
+                            id = result_dict.get('id')
+                            print("{}".format(id))
+                        except BaseException:
+                            print("No result")
                     else:
                         print("No result")
             else:
