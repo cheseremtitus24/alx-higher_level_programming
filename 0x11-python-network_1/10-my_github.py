@@ -30,8 +30,12 @@ def make_request(
                     url=url, data=data, timeout=10, params=params)
             elif method == 'auth':
                 response = s.get(
-                    url, timeout=10, auth=HTTPBasicAuth(
-                        username, access_token))
+                    url,
+                    timeout=10,
+                    headers={
+                        "Accept": "application/vnd.github+json",
+                        "Authorization": f"Bearer {access_token}",
+                        "X-GitHub-Api-Version": "2022-11-28"})
 
         # print(response.status_code)
         return response.text, response
