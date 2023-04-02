@@ -59,7 +59,7 @@ if __name__ == '__main__':
                     print("Not a valid JSON")
                 else:
                     if result_dict:
-                        id = result_dict['id']
+                        id = result_dict.get('id')
                         print("{}".format(id))
                     else:
                         print("No result")
